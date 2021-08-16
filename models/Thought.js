@@ -59,7 +59,7 @@ const ReactionSchema = new Schema({
     }
 );
 
-ThoughtSchema.virtuals
+ThoughtSchema.virtuals()
 
 const Thought = model('Thought', ThoughtSchema);
 module.exports = Thought;
