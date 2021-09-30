@@ -36,7 +36,7 @@ const UserSchema = new Schema(
             getters: true,
         },
 
-        id: false //what is the meaning of this specification 
+        id: false // tells mongodb not to create id for subschema
     }
     
 );
