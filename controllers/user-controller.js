@@ -1,10 +1,10 @@
-const {User} = require('../models');
+const {User}  = require('../models');
 
 
 const userController = {
 // methods to facilitate crud 
 
-//full crud 
+//full crud
 
  // get all users
  getAllUsers(req, res) {
@@ -44,10 +44,11 @@ getUserById({ params }, res) {
   },
 
   // createPizza
-  createUser({ body }, res) {
+  createUser: ({ body }, res) =>{
+    console.log(body)
     User.create(body)
     .then(userData => res.json(userData))
-    // .catch(err => res.status(400).json(err));
+     .catch(err => res.status(400).json(err.message));
 },
 
  // update pizza by id
@@ -75,8 +76,6 @@ getUserById({ params }, res) {
     })
     .catch(err => res.status(400).json(err));
 }
-
-
 
 };
 

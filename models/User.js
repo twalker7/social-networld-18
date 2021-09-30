@@ -2,17 +2,17 @@ const {Schema, model} = require('mongoose');
 
 const UserSchema = new Schema(
     {
-        userNAme :{
+        username :{
             type: String,
             unique: true,
             required: true,
-            trimmed: true
+            trim: true
         },
         email:{
             type: String,
             required: true, 
             unique: true, 
-            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{6,10})+$/, "please insert a valid email"]
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/, "please insert a valid email"]
 
         },
         thoughts: [
