@@ -9,12 +9,14 @@ const ReactionSchema = new Schema({
     },
     reactionBody:{
         type: String,
-        required: true,
+        required: 'Please Enter a reaction',
         maxlength: 280
         
     }, 
     username:{
-        type: String, 
+        type: String,
+        required: 'Must Enter a name!',
+        trim: true
 
     },
     createdAt:{
@@ -28,7 +30,7 @@ const ReactionSchema = new Schema({
     toJSON:{
         getters: true
     },
-    id: false
+   
 }
 );
 
@@ -36,7 +38,7 @@ const ThoughtSchema = new Schema(
     {
         thoughtText:{
             type: String, 
-            required: true,
+            required: 'Please write your thought',
             maxlength: 280
         },
         createdAt:{
@@ -46,7 +48,9 @@ const ThoughtSchema = new Schema(
         },
         username: {
             type: String,
-            require: true
+            trim: true,
+            require: true, 
+            
         },
         reactions: [ReactionSchema]
     },
@@ -62,7 +66,7 @@ const ThoughtSchema = new Schema(
 
 ThoughtSchema.virtual('reactionCount').get(function(){
     return this.reactions.length; 
-    //this is placeholder code and should be revised to be dynamic
+    
 }); 
 
 const Thought = model('Thought', ThoughtSchema);
