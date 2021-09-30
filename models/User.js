@@ -33,6 +33,7 @@ const UserSchema = new Schema(
     {
         toJSOn:{
             virtuals: true, 
+            getters: true,
         },
 
         id: false //what is the meaning of this specification 
